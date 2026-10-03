@@ -1,0 +1,222 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-navy: #0A1C30;
+    --color-navy-dark: #071322;
+    --color-navy-light: #162B44;
+    --color-teal: #0D6E77;
+    --color-teal-light: #138A96;
+    --color-teal-subtle: #EBF6F7;
+    --color-sand: #F8F9FA;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #0F172A;
+    background-color: #FAFBFD;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Custom luxury utility classes */
+.bg-navy-dark {
+  background-color: #071322;
+}
+
+.bg-navy {
+  background-color: #0A1C30;
+}
+
+.bg-navy-light {
+  background-color: #162B44;
+}
+
+.text-navy {
+  color: #0A1C30;
+}
+
+.bg-teal-brand {
+  background-color: #0D6E77;
+}
+
+.text-teal-brand {
+  color: #0D6E77;
+}
+
+.border-teal-brand {
+  border-color: #0D6E77;
+}
+
+.bg-teal-subtle {
+  background-color: #EBF6F7;
+}
+
+/* Glassmorphism Classes */
+.glass-panel-dark {
+  background: rgba(10, 28, 48, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 30px -10px rgba(13, 110, 119, 0.12);
+  border-color: rgba(13, 110, 119, 0.35);
+}
+
+/* Luxury Card Hover */
+.luxury-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+}
+
+.luxury-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 35px -12px rgba(10, 28, 48, 0.14);
+}
+
+/* Subtle textile grain and thread line animation */
+.textile-pattern {
+  background-image: radial-gradient(rgba(13, 110, 119, 0.09) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.textile-grid-dark {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.thread-line {
+  background: linear-gradient(90deg, transparent, #0D6E77, #14B8A6, #0D6E77, transparent);
+  height: 1.5px;
+  background-size: 200% 100%;
+  animation: thread-flow 4s ease infinite;
+}
+
+/* Subtle image zoom on hover */
+.img-zoom-container {
+  overflow: hidden;
+}
+
+.img-zoom-container img {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.img-zoom-container:hover img {
+  transform: scale(1.06);
+}
+
+/* Keyframe Animations */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(0.5deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes thread-flow {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+@keyframes shimmer-sweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 5s ease-in-out infinite;
+}
+
+.animate-float-gentle {
+  animation: float-gentle 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Shimmer Button Effect */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 80%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.75s ease;
+}
+
+.btn-shimmer:hover::after {
+  transform: translateX(100%);
+}
+
+/* Glowing Accent Pills */
+.glow-pill {
+  box-shadow: 0 0 15px rgba(20, 184, 166, 0.25);
+}
